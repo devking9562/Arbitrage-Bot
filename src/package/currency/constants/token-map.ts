@@ -1,0 +1,27 @@
+import { AddressMapper } from "../AddressMapper.js"
+import {
+  USDT_ADDRESS,
+  WETH9_ADDRESS,
+  ASX_ADDRESS,
+  WNATIVE_ADDRESS,
+  WCORE_OLD_ADDRESS,
+  WCORE_GLYPH_ADDRESS,
+  stCORE_ADDRESS,
+  WBTC_ADDRESS,
+  // WNATIVE_ADDRESS,
+} from "./token-addresses.js"
+
+const MERGED_USDT_ADDRESS = AddressMapper.merge(USDT_ADDRESS)
+
+const MERGED_WETH_ADDRESS = AddressMapper.merge(WETH9_ADDRESS)
+
+export const TOKEN_MAP = AddressMapper.generate([
+  MERGED_USDT_ADDRESS,
+  MERGED_WETH_ADDRESS,
+  ASX_ADDRESS,
+  WCORE_GLYPH_ADDRESS,
+  WCORE_OLD_ADDRESS,
+  stCORE_ADDRESS,
+  WBTC_ADDRESS,
+  WNATIVE_ADDRESS,
+])
