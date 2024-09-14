@@ -190,6 +190,13 @@ const job = new CronJob("*/10 * * * * *", async () => {
       [LiquidityProviders.GlyphSwap]
     )
 
+    if (
+      bestRoute1.route.status === RouteStatus.NoWay ||
+      bestRoute2.route.status === RouteStatus.NoWay
+    ) {
+      return
+    }
+
 
 
 })
