@@ -201,7 +201,14 @@ const job = new CronJob("*/10 * * * * *", async () => {
       (bestRoute1.route.swapPrice ?? 0) / (bestRoute2.route.swapPrice ?? 0) - 1
     if (Math.abs(priceImpact) <= 0.001) return
 
-
+    if (priceImpact < 0) {
+      swap(bestRoute2, LiquidityProviders.IcecreamSwapV3)
+    } else {
+      swap(bestRoute1, LiquidityProviders.GlyphSwap)
+    }
+  } catch (err) {
+    console.log(err)
+  }
 })
 
 init()
