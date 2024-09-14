@@ -197,6 +197,9 @@ const job = new CronJob("*/10 * * * * *", async () => {
       return
     }
 
+    const priceImpact =
+      (bestRoute1.route.swapPrice ?? 0) / (bestRoute2.route.swapPrice ?? 0) - 1
+    if (Math.abs(priceImpact) <= 0.001) return
 
 
 })
