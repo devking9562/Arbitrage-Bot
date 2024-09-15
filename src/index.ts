@@ -166,7 +166,15 @@ const job = new CronJob("*/10 * * * * *", async () => {
 
     
 
-    
+    const bestRoute1 = getDEXBestRouteIn(
+      ChainId.CORE,
+      ASX[ChainId.CORE],
+      Native.onChain(ChainId.CORE),
+      initialAmount,
+      poolCodesMap,
+      [LiquidityProviders.IcecreamSwapV3]
+    )
+
     const bestRoute2 = getDEXBestRouteIn(
       ChainId.CORE,
       ASX[ChainId.CORE],
