@@ -164,7 +164,10 @@ const job = new CronJob("*/10 * * * * *", async () => {
     dataFetcher.startDataFetching()
     
 
-    
+    poolCodesMap = dataFetcher.getCurrentPoolCodeMap(
+      ASX[ChainId.CORE],
+      Native.onChain(ChainId.CORE)
+    )
 
     const bestRoute1 = getDEXBestRouteIn(
       ChainId.CORE,
