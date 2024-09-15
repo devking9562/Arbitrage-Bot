@@ -162,7 +162,10 @@ ${
 const job = new CronJob("*/10 * * * * *", async () => {
   try {
     dataFetcher.startDataFetching()
-    
+    await dataFetcher.fetchPoolsForToken(
+      ASX[ChainId.CORE],
+      Native.onChain(ChainId.CORE)
+    )
 
     poolCodesMap = dataFetcher.getCurrentPoolCodeMap(
       ASX[ChainId.CORE],
